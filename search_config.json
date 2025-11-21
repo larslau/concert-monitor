@@ -62,14 +62,16 @@
       "name": "Ticketmaster Denmark",
       "search_url": "https://www.ticketmaster.dk/search?q={query}",
       "enabled": true,
+      "requires_cookies": true,
+      "api_endpoint": "https://app.ticketmaster.com/discovery/v2/events.json",
       "selectors": {
-        "container": "div.event-listing__item",
-        "title": "h3.event-listing__title",
-        "venue": "span.event-listing__venue",
-        "city": "span.event-listing__city",
-        "date": "span.event-listing__date",
-        "link": "a.event-listing__link",
-        "price": "span.event-listing__price"
+        "container": "div[data-test*='event'], article.event-item, div.event-card",
+        "title": "h3, h2, .event-title",
+        "venue": ".venue-name, .location",
+        "city": ".city, .location",
+        "date": ".event-date, time",
+        "link": "a[href*='/event/']",
+        "price": ".price, .ticket-price"
       }
     },
     {
