@@ -1,0 +1,267 @@
+{
+  "artists": [
+    "Agnes Denes",
+    "Trine Søndergaard",
+    "Trine Sondergaard",
+    "Nicolai Howalt",
+    "Søren Solkær",
+    "Soren Solkaer",
+    "Cooper Gorfer",
+    "Shinichi Maruyama",
+    "Naoya Hatakeyama",
+    "Toshio Shibata",
+    "Gemmy Woud-Binnendijk"
+  ],
+  "furniture": [
+    {
+      "terms": ["PP505", "Wegner"],
+      "description": "Cow Horn Chair (PP505)"
+    },
+    {
+      "terms": ["PP 505", "Wegner"],
+      "description": "Cow Horn Chair (PP 505 with space)"
+    },
+    {
+      "terms": ["PP-505", "Wegner"],
+      "description": "Cow Horn Chair (PP-505 with hyphen)"
+    },
+    {
+      "terms": ["JH505", "Wegner"],
+      "description": "Cow Horn Chair (JH505)"
+    },
+    {
+      "terms": ["JH 505", "Wegner"],
+      "description": "Cow Horn Chair (JH 505 with space)"
+    },
+    {
+      "terms": ["Cow Horn", "Wegner"],
+      "description": "Cow Horn Chair (name search)"
+    },
+    {
+      "terms": ["PP75", "Wegner"],
+      "description": "Desk (PP75)"
+    },
+    {
+      "terms": ["PP 75", "Wegner"],
+      "description": "Desk (PP 75 with space)"
+    },
+    {
+      "terms": ["PP-75", "Wegner"],
+      "description": "Desk (PP-75 with hyphen)"
+    },
+    {
+      "terms": ["PP101", "Wegner"],
+      "description": "Dining Chair (PP101)"
+    },
+    {
+      "terms": ["PP 101", "Wegner"],
+      "description": "Dining Chair (PP 101 with space)"
+    },
+    {
+      "terms": ["PP-101", "Wegner"],
+      "description": "Dining Chair (PP-101 with hyphen)"
+    },
+    {
+      "terms": ["PP550", "Wegner"],
+      "description": "Peacock Chair (PP550)"
+    },
+    {
+      "terms": ["PP 550", "Wegner"],
+      "description": "Peacock Chair (PP 550 with space)"
+    },
+    {
+      "terms": ["PP-550", "Wegner"],
+      "description": "Peacock Chair (PP-550 with hyphen)"
+    },
+    {
+      "terms": ["JH550", "Wegner"],
+      "description": "Peacock Chair (JH550)"
+    },
+    {
+      "terms": ["JH 550", "Wegner"],
+      "description": "Peacock Chair (JH 550 with space)"
+    },
+    {
+      "terms": ["Peacock", "Wegner"],
+      "description": "Peacock Chair (name search)"
+    },
+    {
+      "terms": ["Påfugl", "Wegner"],
+      "description": "Peacock Chair (Danish: Påfugl)"
+    },
+    {
+      "terms": ["Påfuglestol", "Wegner"],
+      "description": "Peacock Chair (Danish: Påfuglestol)"
+    }
+  ],
+  "sites": [
+    {
+      "name": "Bruun Rasmussen",
+      "base_url": "https://bruun-rasmussen.dk",
+      "search_url": "https://bruun-rasmussen.dk/en/search.do?query={query}",
+      "region": "Nordic",
+      "type": "auction"
+    },
+    {
+      "name": "Lauritz",
+      "base_url": "https://lauritz.com",
+      "search_url": "https://www.lauritz.com/en/auction/search?q={query}",
+      "region": "Nordic",
+      "type": "auction"
+    },
+    {
+      "name": "Bukowskis",
+      "base_url": "https://bukowskis.com",
+      "search_url": "https://www.bukowskis.com/en/lots?search={query}",
+      "region": "Nordic",
+      "type": "auction"
+    },
+    {
+      "name": "DBA.dk",
+      "base_url": "https://dba.dk",
+      "search_url": "https://www.dba.dk/soeg/?soeg={query}",
+      "region": "Denmark",
+      "type": "marketplace"
+    },
+    {
+      "name": "Blomqvist",
+      "base_url": "https://blomqvist.no",
+      "search_url": "https://blomqvist.no/en/search?q={query}",
+      "region": "Norway",
+      "type": "auction"
+    },
+    {
+      "name": "eBay",
+      "base_url": "https://ebay.com",
+      "search_url": "https://www.ebay.com/sch/i.html?_nkw={query}",
+      "region": "International",
+      "type": "marketplace"
+    },
+    {
+      "name": "Barnebys",
+      "base_url": "https://barnebys.co.uk",
+      "search_url": "https://www.barnebys.co.uk/search?q={query}",
+      "region": "International",
+      "type": "aggregator"
+    },
+    {
+      "name": "1stDibs",
+      "base_url": "https://1stdibs.com",
+      "search_url": "https://www.1stdibs.com/search/?q={query}",
+      "region": "International",
+      "type": "marketplace"
+    },
+    {
+      "name": "Pamono",
+      "base_url": "https://pamono.com",
+      "search_url": "https://www.pamono.com/furniture?query={query}",
+      "region": "Europe",
+      "type": "marketplace"
+    },
+    {
+      "name": "LiveAuctioneers",
+      "base_url": "https://liveauctioneers.com",
+      "search_url": "https://www.liveauctioneers.com/search/?keyword={query}",
+      "region": "International",
+      "type": "aggregator"
+    },
+    {
+      "name": "Wright",
+      "base_url": "https://wright20.com",
+      "search_url": "https://wright20.com/search?q={query}",
+      "region": "USA",
+      "type": "auction"
+    },
+    {
+      "name": "The Saleroom",
+      "base_url": "https://thesaleroom.com",
+      "search_url": "https://www.the-saleroom.com/en-gb/search?searchTerm={query}",
+      "region": "UK",
+      "type": "aggregator"
+    },
+    {
+      "name": "Artsy",
+      "base_url": "https://artsy.net",
+      "search_url": "https://www.artsy.net/search?term={query}",
+      "region": "International",
+      "type": "marketplace"
+    },
+    {
+      "name": "Artnet",
+      "base_url": "https://artnet.com",
+      "search_url": "https://www.artnet.com/search/artworks/?q={query}",
+      "region": "International",
+      "type": "marketplace"
+    },
+    {
+      "name": "Heritage Auctions",
+      "base_url": "https://ha.com",
+      "search_url": "https://www.ha.com/common/search.php?keyword={query}&mode=live",
+      "region": "USA",
+      "type": "auction"
+    },
+    {
+      "name": "MutualArt",
+      "base_url": "https://mutualart.com",
+      "search_url": "https://www.mutualart.com/Artist/Search?keyword={query}",
+      "region": "International",
+      "type": "database"
+    },
+    {
+      "name": "Dorotheum",
+      "base_url": "https://dorotheum.com",
+      "search_url": "https://www.dorotheum.com/en/search/?q={query}",
+      "region": "Austria",
+      "type": "auction"
+    },
+    {
+      "name": "Quittenbaum",
+      "base_url": "https://quittenbaum.de",
+      "search_url": "https://www.quittenbaum.de/en/search/?q={query}",
+      "region": "Germany",
+      "type": "auction"
+    },
+    {
+      "name": "Los Angeles Modern",
+      "base_url": "https://lamodern.com",
+      "search_url": "https://lamodern.com/search?type=product&q={query}",
+      "region": "USA",
+      "type": "auction"
+    },
+    {
+      "name": "Heritage Auctions",
+      "base_url": "https://ha.com",
+      "search_url": "https://www.ha.com/common/search.php?keyword={query}&mode=live",
+      "region": "USA",
+      "type": "auction"
+    },
+    {
+      "name": "Bonhams",
+      "base_url": "https://bonhams.com",
+      "search_url": "https://www.bonhams.com/search/?q={query}",
+      "region": "International",
+      "type": "auction"
+    },
+    {
+      "name": "Phillips",
+      "base_url": "https://phillips.com",
+      "search_url": "https://www.phillips.com/search/{query}",
+      "region": "International",
+      "type": "auction"
+    },
+    {
+      "name": "Christie's",
+      "base_url": "https://christies.com",
+      "search_url": "https://www.christies.com/search?keyword={query}",
+      "region": "International",
+      "type": "auction"
+    },
+    {
+      "name": "Sotheby's",
+      "base_url": "https://sothebys.com",
+      "search_url": "https://www.sothebys.com/en/search-results?query={query}",
+      "region": "International",
+      "type": "auction"
+    }
+  ]
+}
