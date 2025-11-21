@@ -1,40 +1,158 @@
-name: Art & Design Monitor
+name: Concert Monitoring System
 
 on:
   schedule:
-    # Run daily at 9 AM UTC (10 AM CET / 11 AM CEST)
-    # This runs EVERY DAY at the same time
+    # Run daily at 9 AM UTC
     - cron: '0 9 * * *'
-  workflow_dispatch:  # Allow manual triggers
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      force_email:
+        description: 'Send email even if no new items'
+        required: false
+        default: 'false'
+        type: boolean
 
 jobs:
-  monitor:
+  monitor-concerts:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
-    
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
-    
+        python-version: '3.11'
+        
+    - name: Cache Python dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4
-    
-    - name: Run monitor
+        pip install requests beautifulsoup4 lxml
+        
+    - name: Download previous seen items
+      uses: actions/download-artifact@v3
+      with:
+        name: seen-items
+        path: .
+      continue-on-error: true
+      
+    - name: Run concert monitor
       env:
-        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+        SMTP_SERVER: smtp.gmail.com
+        SMTP_PORT: 587
+        EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
-      run: python monitor.py
-    
-    - name: Commit changes
+        EMAIL_TO: ${{ secrets.EMAIL_TO }}
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add emailed_items.json active_items.json || true
-        git diff --quiet && git diff --staged --quiet || git commit -m "Update tracked items [skip ci]"
-        git push || true
+        python monitor.py
+        
+    - name: Upload seen items
+      uses: actions/upload-artifact@v3
+      with:
+        name: seen-items
+        path: seen_items.json
+        retention-days: 90
+        
+    - name: Commit updated seen items
+      run: |
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions"
+        git add seen_items.json 2>/dev/null || true
+        git commit -m "Update seen items [skip ci]" || echo "No changes to commit"
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+      continue-on-error: true
+      
+  # Optional: Send test email
+  test-email:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.force_email == 'true'
+    runs-on: ubuntu-latest
+    needs: monitor-concerts
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4 lxml
+        
+    - name: Send test email
+      env:
+        SMTP_SERVER: smtp.gmail.com
+        SMTP_PORT: 587
+        EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        EMAIL_TO: ${{ secrets.EMAIL_TO }}
+      run: |
+        python -c "
+        import os
+        import smtplib
+        from email.mime.text import MIMEText
+        from email.mime.multipart import MIMEMultipart
+        from datetime import datetime
+        
+        msg = MIMEMultipart('alternative')
+        msg['From'] = os.environ['EMAIL_FROM']
+        msg['To'] = os.environ['EMAIL_TO']
+        msg['Subject'] = f'Test: Concert Monitoring System - {datetime.now()}'
+        
+        html = '''
+        <html>
+        <body>
+            <h2>Concert Monitoring Test Email</h2>
+            <p>This is a test email from your Concert Monitoring System.</p>
+            <p>If you receive this, your email configuration is working correctly!</p>
+            <p>Monitoring configuration:</p>
+            <ul>
+                <li>Schedule: Daily at 9 AM UTC</li>
+                <li>Artists: Max Richter, Radiohead, Ludovico Einaudi, and others</li>
+                <li>Region: Denmark and Europe</li>
+                <li>Sites: 25+ ticket platforms</li>
+            </ul>
+        </body>
+        </html>
+        '''
+        
+        msg.attach(MIMEText(html, 'html'))
+        
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+            server.starttls()
+            server.login(os.environ['EMAIL_FROM'], os.environ['EMAIL_PASSWORD'])
+            server.send_message(msg)
+            
+        print('Test email sent successfully!')
+        "
+
+# Monitoring Report Job (Weekly Summary - Optional)
+  weekly-report:
+    if: github.event.schedule == '0 9 * * 0'  # Only on Sundays
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Generate weekly report
+      run: |
+        echo "Weekly monitoring report generated"
+        # Add report generation logic here if needed
