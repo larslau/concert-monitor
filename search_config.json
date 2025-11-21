@@ -1,267 +1,394 @@
 {
   "artists": [
-    "Agnes Denes",
-    "Trine Søndergaard",
-    "Trine Sondergaard",
-    "Nicolai Howalt",
-    "Søren Solkær",
-    "Soren Solkaer",
-    "Cooper Gorfer",
-    "Shinichi Maruyama",
-    "Naoya Hatakeyama",
-    "Toshio Shibata",
-    "Gemmy Woud-Binnendijk"
-  ],
-  "furniture": [
     {
-      "terms": ["PP505", "Wegner"],
-      "description": "Cow Horn Chair (PP505)"
+      "name": "Max Richter",
+      "variations": ["Richter"]
     },
     {
-      "terms": ["PP 505", "Wegner"],
-      "description": "Cow Horn Chair (PP 505 with space)"
+      "name": "Radiohead",
+      "variations": ["Radio Head"]
     },
     {
-      "terms": ["PP-505", "Wegner"],
-      "description": "Cow Horn Chair (PP-505 with hyphen)"
+      "name": "Ludovico Einaudi",
+      "variations": ["Einaudi"]
     },
     {
-      "terms": ["JH505", "Wegner"],
-      "description": "Cow Horn Chair (JH505)"
+      "name": "Eels",
+      "variations": []
     },
     {
-      "terms": ["JH 505", "Wegner"],
-      "description": "Cow Horn Chair (JH 505 with space)"
+      "name": "Phoria",
+      "variations": []
     },
     {
-      "terms": ["Cow Horn", "Wegner"],
-      "description": "Cow Horn Chair (name search)"
+      "name": "Damien Rice",
+      "variations": ["Rice"]
     },
     {
-      "terms": ["PP75", "Wegner"],
-      "description": "Desk (PP75)"
+      "name": "Stephen Wilson Jr.",
+      "variations": ["Stephen Wilson Jr", "Stephen Wilson Junior"]
     },
     {
-      "terms": ["PP 75", "Wegner"],
-      "description": "Desk (PP 75 with space)"
+      "name": "Olafur Arnalds",
+      "variations": ["Ólafur Arnalds", "Olafur", "Arnalds"]
     },
     {
-      "terms": ["PP-75", "Wegner"],
-      "description": "Desk (PP-75 with hyphen)"
+      "name": "Arvo Pärt",
+      "variations": ["Arvi Part", "Arvo Part", "Pärt"]
     },
     {
-      "terms": ["PP101", "Wegner"],
-      "description": "Dining Chair (PP101)"
+      "name": "Mari Samuelsen",
+      "variations": ["Samuelsen"]
     },
     {
-      "terms": ["PP 101", "Wegner"],
-      "description": "Dining Chair (PP 101 with space)"
+      "name": "Tom Waits",
+      "variations": ["Waits"]
     },
     {
-      "terms": ["PP-101", "Wegner"],
-      "description": "Dining Chair (PP-101 with hyphen)"
+      "name": "City of the Sun",
+      "variations": []
     },
     {
-      "terms": ["PP550", "Wegner"],
-      "description": "Peacock Chair (PP550)"
+      "name": "Hans Zimmer",
+      "variations": ["Zimmer"]
     },
     {
-      "terms": ["PP 550", "Wegner"],
-      "description": "Peacock Chair (PP 550 with space)"
-    },
-    {
-      "terms": ["PP-550", "Wegner"],
-      "description": "Peacock Chair (PP-550 with hyphen)"
-    },
-    {
-      "terms": ["JH550", "Wegner"],
-      "description": "Peacock Chair (JH550)"
-    },
-    {
-      "terms": ["JH 550", "Wegner"],
-      "description": "Peacock Chair (JH 550 with space)"
-    },
-    {
-      "terms": ["Peacock", "Wegner"],
-      "description": "Peacock Chair (name search)"
-    },
-    {
-      "terms": ["Påfugl", "Wegner"],
-      "description": "Peacock Chair (Danish: Påfugl)"
-    },
-    {
-      "terms": ["Påfuglestol", "Wegner"],
-      "description": "Peacock Chair (Danish: Påfuglestol)"
+      "name": "RIOPY",
+      "variations": ["Riopy"]
     }
   ],
   "sites": [
     {
-      "name": "Bruun Rasmussen",
-      "base_url": "https://bruun-rasmussen.dk",
-      "search_url": "https://bruun-rasmussen.dk/en/search.do?query={query}",
-      "region": "Nordic",
-      "type": "auction"
+      "name": "Ticketmaster Denmark",
+      "search_url": "https://www.ticketmaster.dk/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-listing__item",
+        "title": "h3.event-listing__title",
+        "venue": "span.event-listing__venue",
+        "city": "span.event-listing__city",
+        "date": "span.event-listing__date",
+        "link": "a.event-listing__link",
+        "price": "span.event-listing__price"
+      }
     },
     {
-      "name": "Lauritz",
-      "base_url": "https://lauritz.com",
-      "search_url": "https://www.lauritz.com/en/auction/search?q={query}",
-      "region": "Nordic",
-      "type": "auction"
+      "name": "Billetlugen",
+      "search_url": "https://www.billetlugen.dk/search?query={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.search-result-item",
+        "title": "h3.event-name",
+        "venue": "div.venue-name",
+        "date": "div.event-date",
+        "link": "a.event-link",
+        "price": "div.price-info"
+      }
     },
     {
-      "name": "Bukowskis",
-      "base_url": "https://bukowskis.com",
-      "search_url": "https://www.bukowskis.com/en/lots?search={query}",
-      "region": "Nordic",
-      "type": "auction"
+      "name": "Ticketmaster UK",
+      "search_url": "https://www.ticketmaster.co.uk/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div[data-testid='event-card']",
+        "title": "h3[data-testid='event-title']",
+        "venue": "span[data-testid='venue-name']",
+        "city": "span[data-testid='venue-city']",
+        "date": "span[data-testid='event-date']",
+        "link": "a[data-testid='event-link']",
+        "price": "span[data-testid='price-range']"
+      }
     },
     {
-      "name": "DBA.dk",
-      "base_url": "https://dba.dk",
-      "search_url": "https://www.dba.dk/soeg/?soeg={query}",
-      "region": "Denmark",
-      "type": "marketplace"
+      "name": "Eventim",
+      "search_url": "https://www.eventim.de/en/search/?searchTerm={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "article.search-result",
+        "title": "h2.event-name",
+        "venue": "span.venue",
+        "city": "span.city",
+        "date": "span.date",
+        "link": "a.event-link",
+        "price": "span.price"
+      }
     },
     {
-      "name": "Blomqvist",
-      "base_url": "https://blomqvist.no",
-      "search_url": "https://blomqvist.no/en/search?q={query}",
-      "region": "Norway",
-      "type": "auction"
+      "name": "See Tickets",
+      "search_url": "https://www.seetickets.com/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-card",
+        "title": "h3.event-title",
+        "venue": "div.venue-info",
+        "date": "div.date-info",
+        "link": "a.event-url",
+        "price": "div.price-display"
+      }
     },
     {
-      "name": "eBay",
-      "base_url": "https://ebay.com",
-      "search_url": "https://www.ebay.com/sch/i.html?_nkw={query}",
-      "region": "International",
-      "type": "marketplace"
+      "name": "Royal Arena Copenhagen",
+      "search_url": "https://www.royalarena.dk/en/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-item",
+        "title": "h3.event-title",
+        "venue": "span.venue-name",
+        "date": "span.event-date",
+        "link": "a.event-link"
+      }
     },
     {
-      "name": "Barnebys",
-      "base_url": "https://barnebys.co.uk",
-      "search_url": "https://www.barnebys.co.uk/search?q={query}",
-      "region": "International",
-      "type": "aggregator"
+      "name": "DR Koncerthuset",
+      "search_url": "https://drkoncerthuset.dk/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "article.concert-item",
+        "title": "h2.concert-title",
+        "venue": "div.concert-hall",
+        "date": "time.concert-date",
+        "link": "a.concert-link",
+        "price": "span.ticket-price"
+      }
     },
     {
-      "name": "1stDibs",
-      "base_url": "https://1stdibs.com",
-      "search_url": "https://www.1stdibs.com/search/?q={query}",
-      "region": "International",
-      "type": "marketplace"
+      "name": "Tivoli Copenhagen",
+      "search_url": "https://www.tivoli.dk/en/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-card",
+        "title": "h3.event-name",
+        "venue": "span.location",
+        "date": "span.date",
+        "link": "a.event-link"
+      }
     },
     {
-      "name": "Pamono",
-      "base_url": "https://pamono.com",
-      "search_url": "https://www.pamono.com/furniture?query={query}",
-      "region": "Europe",
-      "type": "marketplace"
+      "name": "Vega Copenhagen",
+      "search_url": "https://vega.dk/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-list-item",
+        "title": "h2.event-title",
+        "venue": "span.venue",
+        "date": "time.event-date",
+        "link": "a.event-link",
+        "price": "span.price"
+      }
     },
     {
-      "name": "LiveAuctioneers",
-      "base_url": "https://liveauctioneers.com",
-      "search_url": "https://www.liveauctioneers.com/search/?keyword={query}",
-      "region": "International",
-      "type": "aggregator"
+      "name": "Ticketmaster Sweden",
+      "search_url": "https://www.ticketmaster.se/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-item",
+        "title": "h3.event-title",
+        "venue": "span.venue-name",
+        "city": "span.city-name",
+        "date": "span.event-date",
+        "link": "a.event-link",
+        "price": "span.price-range"
+      }
     },
     {
-      "name": "Wright",
-      "base_url": "https://wright20.com",
-      "search_url": "https://wright20.com/search?q={query}",
-      "region": "USA",
-      "type": "auction"
+      "name": "Ticketmaster Norway",
+      "search_url": "https://www.ticketmaster.no/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-card",
+        "title": "h3.title",
+        "venue": "span.venue",
+        "city": "span.location",
+        "date": "span.date",
+        "link": "a.event-link",
+        "price": "span.price"
+      }
     },
     {
-      "name": "The Saleroom",
-      "base_url": "https://thesaleroom.com",
-      "search_url": "https://www.the-saleroom.com/en-gb/search?searchTerm={query}",
-      "region": "UK",
-      "type": "aggregator"
+      "name": "Royal Albert Hall",
+      "search_url": "https://www.royalalberthall.com/search/?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "article.search-result",
+        "title": "h3.event-title",
+        "date": "time.event-date",
+        "link": "a.event-link",
+        "price": "span.price-from"
+      }
     },
     {
-      "name": "Artsy",
-      "base_url": "https://artsy.net",
-      "search_url": "https://www.artsy.net/search?term={query}",
-      "region": "International",
-      "type": "marketplace"
+      "name": "Barbican Centre",
+      "search_url": "https://www.barbican.org.uk/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-item",
+        "title": "h3.title",
+        "venue": "span.venue",
+        "date": "time.date",
+        "link": "a.link",
+        "price": "span.price"
+      }
     },
     {
-      "name": "Artnet",
-      "base_url": "https://artnet.com",
-      "search_url": "https://www.artnet.com/search/artworks/?q={query}",
-      "region": "International",
-      "type": "marketplace"
+      "name": "Elbphilharmonie Hamburg",
+      "search_url": "https://www.elbphilharmonie.de/en/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.search-result",
+        "title": "h3.title",
+        "venue": "span.hall",
+        "date": "time.date",
+        "link": "a.event-link",
+        "price": "span.price-range"
+      }
     },
     {
-      "name": "Heritage Auctions",
-      "base_url": "https://ha.com",
-      "search_url": "https://www.ha.com/common/search.php?keyword={query}&mode=live",
-      "region": "USA",
-      "type": "auction"
+      "name": "Southbank Centre London",
+      "search_url": "https://www.southbankcentre.co.uk/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "article.event",
+        "title": "h3.event-title",
+        "venue": "span.venue",
+        "date": "time.date",
+        "link": "a.event-link",
+        "price": "span.price"
+      }
     },
     {
-      "name": "MutualArt",
-      "base_url": "https://mutualart.com",
-      "search_url": "https://www.mutualart.com/Artist/Search?keyword={query}",
-      "region": "International",
-      "type": "database"
+      "name": "O2 Arena London",
+      "search_url": "https://www.theo2.co.uk/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-item",
+        "title": "h3.event-name",
+        "date": "span.event-date",
+        "link": "a.event-url",
+        "price": "span.ticket-price"
+      }
     },
     {
-      "name": "Dorotheum",
-      "base_url": "https://dorotheum.com",
-      "search_url": "https://www.dorotheum.com/en/search/?q={query}",
-      "region": "Austria",
-      "type": "auction"
+      "name": "Operaen Copenhagen",
+      "search_url": "https://kglteater.dk/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.performance",
+        "title": "h3.title",
+        "venue": "span.venue",
+        "date": "time.date",
+        "link": "a.link",
+        "price": "span.price"
+      }
     },
     {
-      "name": "Quittenbaum",
-      "base_url": "https://quittenbaum.de",
-      "search_url": "https://www.quittenbaum.de/en/search/?q={query}",
-      "region": "Germany",
-      "type": "auction"
+      "name": "Live Nation",
+      "search_url": "https://www.livenation.com/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-card",
+        "title": "h3.event-title",
+        "venue": "span.venue-name",
+        "city": "span.city",
+        "date": "span.date",
+        "link": "a.event-link",
+        "price": "span.price-range"
+      }
     },
     {
-      "name": "Los Angeles Modern",
-      "base_url": "https://lamodern.com",
-      "search_url": "https://lamodern.com/search?type=product&q={query}",
-      "region": "USA",
-      "type": "auction"
+      "name": "AXS",
+      "search_url": "https://www.axs.com/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-card",
+        "title": "h3.event-title",
+        "venue": "div.venue-info",
+        "date": "div.date-info",
+        "link": "a.event-link",
+        "price": "div.price-info"
+      }
     },
     {
-      "name": "Heritage Auctions",
-      "base_url": "https://ha.com",
-      "search_url": "https://www.ha.com/common/search.php?keyword={query}&mode=live",
-      "region": "USA",
-      "type": "auction"
+      "name": "StubHub",
+      "search_url": "https://www.stubhub.com/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-listing",
+        "title": "h3.event-name",
+        "venue": "span.venue",
+        "city": "span.location",
+        "date": "span.date",
+        "link": "a.event-url",
+        "price": "span.price"
+      }
     },
     {
-      "name": "Bonhams",
-      "base_url": "https://bonhams.com",
-      "search_url": "https://www.bonhams.com/search/?q={query}",
-      "region": "International",
-      "type": "auction"
+      "name": "Songkick",
+      "search_url": "https://www.songkick.com/search?query={query}&type=artists",
+      "enabled": true,
+      "selectors": {
+        "container": "li.event",
+        "title": "p.artists",
+        "venue": "p.venue",
+        "city": "p.location",
+        "date": "time",
+        "link": "a.event-link"
+      }
     },
     {
-      "name": "Phillips",
-      "base_url": "https://phillips.com",
-      "search_url": "https://www.phillips.com/search/{query}",
-      "region": "International",
-      "type": "auction"
+      "name": "Bandsintown",
+      "search_url": "https://www.bandsintown.com/search?query={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-item",
+        "title": "h3.artist-name",
+        "venue": "div.venue-name",
+        "city": "div.city",
+        "date": "div.date",
+        "link": "a.event-link"
+      }
     },
     {
-      "name": "Christie's",
-      "base_url": "https://christies.com",
-      "search_url": "https://www.christies.com/search?keyword={query}",
-      "region": "International",
-      "type": "auction"
+      "name": "Gigantic Tickets",
+      "search_url": "https://www.gigantic.com/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-row",
+        "title": "h3.event-title",
+        "venue": "span.venue",
+        "city": "span.city",
+        "date": "span.date",
+        "link": "a.event-link",
+        "price": "span.price"
+      }
     },
     {
-      "name": "Sotheby's",
-      "base_url": "https://sothebys.com",
-      "search_url": "https://www.sothebys.com/en/search-results?query={query}",
-      "region": "International",
-      "type": "auction"
+      "name": "Dice",
+      "search_url": "https://dice.fm/search?q={query}",
+      "enabled": true,
+      "selectors": {
+        "container": "div.event-card",
+        "title": "h3.event-name",
+        "venue": "div.venue",
+        "city": "div.location",
+        "date": "div.date",
+        "link": "a.event-link",
+        "price": "div.price"
+      }
     }
-  ]
+  ],
+  "monitoring": {
+    "max_results_per_search": 15,
+    "search_timeout": 15,
+    "geographic_scope": ["Denmark", "Europe"],
+    "date_range_months": 24,
+    "include_sold_out": true,
+    "include_presales": true,
+    "include_vip_packages": true
+  },
+  "email": {
+    "daily_if_new": true,
+    "weekly_summary": false,
+    "send_only_if_new": true,
+    "group_by": "artist"
+  }
 }
